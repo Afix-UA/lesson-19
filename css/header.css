@@ -1,0 +1,252 @@
+.header {
+    color: #000;
+    font-family: "Merriweather";
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #fff;
+    
+}
+.header--sticky {
+    position: sticky;
+    background-color: #FFF9F4;
+}
+
+.header__container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    min-height: 100px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.header__logo {
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 700;
+    z-index: 51;
+}
+.header__menu {
+}
+.menu {
+    flex: 1 1 auto;
+}
+
+.icon-menu {
+    display: none;
+    width: 30px;
+    background-color: transparent;
+    flex: 0 0 30px;
+    height: 18px;
+    position: relative;
+    z-index: 105;
+}
+
+.icon-menu::before, .icon-menu::after, .icon-menu span {
+    content: "";
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s;
+    background-color: #000;
+}
+.icon-menu span {
+    margin-top: -1px;
+}
+.icon-menu::after {
+    top: 0;
+}
+.icon-menu::before {
+    bottom: 0;
+}
+
+.menu__body { 
+    
+
+}
+.menu__list {
+    display: flex;
+    justify-content: center;
+    column-gap: 36px;
+    row-gap: 8px;
+    flex-wrap: wrap;
+}
+.menu__item {
+}
+.menu__link {
+    font-size: 20px;
+    transition: color 0.3s ease 0s;
+}
+
+@media (any-hover: hover){
+    .menu__link:hover{
+        color: #D58417;
+        
+    }
+}
+.menu__item--parent {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 4px;
+}
+/* .menu__item--parent::after {
+    content: "";
+    background: url(../img/hero/arrow.png) 0 0 no-repeat;
+    flex: 0 0 16px;
+    height: 8px;
+    width: 16px;
+    transition: transform 0.3s;
+
+} */
+.header__actions {
+
+}
+.actions-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.actions-header__item {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    position: relative;
+    transition: transform 0.3s ease 0s;
+}
+
+.button {
+    padding: 13px 28px;
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    border-radius: 5px;
+    background-color: #0E333D;
+    transition: background-color 0.3s ease 0s;
+
+}
+@media (any-hover: hover){
+    .actions-header__item:hover{
+        transform: scale(1.1);
+        
+    }
+    .button:hover {
+        background-color: #061a1f;
+    }
+}
+
+.actions-header__item span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #FF3333;
+    color: #FFF;
+    font-size: 10px;
+    text-align: center;
+    padding-top: 1px;
+
+
+}
+@media (max-width:960px){
+    
+    .header__container {
+        
+        min-height: 70px;
+        
+    }
+
+    .header__logo {
+        z-index: 105;
+    }
+    .icon-menu {
+        display: block;
+    }
+    
+    .menu-open .icon-menu::before {
+        transform: rotate(-45deg);
+        top: 50%;
+        margin-top: -1px;
+    }
+    .menu-open .icon-menu::after {
+        transform: rotate(45deg);
+        top: 50%;
+        margin-top: -1px;
+    }
+    .menu-open .icon-menu span {
+        transform: scale(0);
+        
+    }
+    .actions-header {
+        z-index: 105;
+    }
+    .menu__body { 
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        z-index: 100;
+        overflow: auto;
+        padding: 80px 15px 15px 30px;
+        background-color: #e2e2e2;
+        
+        transition: left 0.3s ease 0s;
+    }
+    .menu__body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        z-index: 2;
+        height: 70px;
+        
+        background-color: #e9dfd9;
+        transition: left 0.3s ease 0s;
+    }
+    .menu-open .menu__body,
+    .menu-open .menu__body::before{ 
+        left: 0;
+    }
+    .menu-open .header--sticky {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .menu__list {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 30px;
+    }
+    
+    .menu__link {
+        font-size: 30px;
+        font-weight: 700;
+    }
+}
+@media (max-width:480px){
+    .header__container {
+        gap: 5px;
+    }
+    .header__logo {
+        font-size: 24px;
+        text-wrap: nowrap;
+    }
+    .actions-header {
+        
+        gap: 15px;
+    }
+    .actions-header__button{
+        padding: 13px 15px;
+    }
+}
